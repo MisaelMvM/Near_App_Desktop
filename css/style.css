@@ -1,5 +1,9 @@
 div.container {
-  padding-top: 15px; }
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
   div.container img.botFace {
     max-width: 20%;
     height: auto;
@@ -21,7 +25,5 @@ div.container {
     margin-bottom: 1%; }
     div.container div i.stars {
       color: #ef1f8b; }
-  div.container:last-child {
-    color: #808080; }
 
 /*# sourceMappingURL=style.css.map */
