@@ -37,8 +37,9 @@
 
 <div class="container">
 	<div layout="column" layout-align="start center">
+	<!-- HEADER -->
 		<img src="assets/img/Maya.jpg" class="botFace" alt="Responsive image" layout-fill>
-		<h3>Maya</h3>
+		<h3 class="name">Maya</h3>
 		<div layout="row">
 			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
@@ -47,6 +48,35 @@
 			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 		</div>
 		<h3>Personal Business Assistant</h3>
+	<!-- DIALOG -->	
+		<chat layout="column" layout-fill>
+			<div class="botTalk" layout="row" layout-align="start center">
+				<div flex="10"></div>
+				<div class="talk" flex="90">
+					<h5>Hello there, Good Morning! I hope you are<br>having a great day &#x1f60b;</h5>
+				</div>
+			</div>
+			<div class="botTalk" layout="row" layout-align="start center">
+				<div flex="10"></div>
+				<div class="talk" flex="90">
+					<h5>Today I will be helping you to set up your<br>Near account.</h5>
+				</div>
+			</div>
+			<div class="botTalk" layout="row" layout-align="start center">
+				<img src="assets/img/Maya.jpg" class="smallBotFace" alt="Responsive image" flex="10">
+				<div class="talk" flex="90">
+					<h5>What is your name?</h5>
+				</div>
+			</div>
+			<div class="userTalk" layout="row" layout-align="end center">
+	      <md-input-container flex="30" flex-offset="20">
+	        <input ng-init="firstName" ng-model="firstName" placeholder="First Name">
+	      </md-input-container>
+	      <md-input-container flex="50">
+	        <input ng-init="lastName" ng-model="lastName" placeholder="Last Name">
+	      </md-input-container>
+			</div>
+		</chat>
 	</div>
 </div>
 
