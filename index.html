@@ -33,59 +33,162 @@
 		<script src="js/app.js"></script>
 
 </head>
-<body ng-app="nearBot" ng-init="botFace = 'assets/img/Maya.jpg' ">
-
-<div class="container">
-	<div layout="column" layout-align="start center">
-	<!-- HEADER -->
-		<img ng-src="{{botFace}}" class="botFace" alt="Responsive image" layout-fill>
-		<h3 class="name">Maya</h3>
-		<div layout="row">
-			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
-			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
-			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
-			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
-			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+<body ng-app="nearBot">
+<!-- HEADER -->
+<div class="header" layout="column"  layout-align="center center" flex>
+	<!-- BOT FACE -->
+		<div>
+		<!-- MD & GT-MD -->
+			<div layout="column" hide-xs hide-sm layout-align="center center">
+				<img ng-src="assets/img/Maya-lg.jpg" alt="Responsive image">
+			</div>
+		<!-- XS & SM -->
+			<div layout="column" hide-gt-sm layout-align="center center"> 
+				<img ng-src="assets/img/Maya-sm.jpg" alt="Responsive image">
+			</div>
 		</div>
-		<h3>Personal Business Assistant</h3>
-	<!-- DIALOG -->	
-		<chat layout="column" layout-fill>
-			<div class="botTalk" layout="row" layout-align="start center">
-				<img ng-src="{{botFace}}" class="smallBotFace" >
-				<div class="talk" flex="90">
-					<h5>Hello there, Good Morning! I hope you are having a great day &#x1f60b;</h5>
-				</div>
+	<!-- BOT NAME -->
+		<div>
+		<!-- MD & GT-MD -->
+			<div layout="column" hide-xs hide-sm layout-align="center center">
+				<h4 class="md-title">Maya</h4>
 			</div>
-			<div class="botTalk" layout="row" layout-align="start center">
-				<img ng-src="assets/img/Maya.jpg" class="smallBotFace" >
-				<div class="talk" flex="90">
-					<h5>Today I will be helping you to set up your Near account.</h5>
-				</div>
+		<!-- XS & SM -->
+			<div layout="column" hide-gt-sm layout-align="center center">
+				<h6>Maya</h6>
 			</div>
-			<div class="botTalk" layout="row" layout-align="start start">
-				<img ng-src="{{botFace}}" class="smallBotFace show-face" >
-				<div class="talk" flex="90">
-					<h5>What is your name?</h5>
-				</div>
+		</div>
+	<!-- BOT STARS -->
+		<div>
+		<!-- MD & GT-MD -->
+			<div layout="column" hide-xs hide-sm layout-align="center center">
+				<h4><div class="stars" layout="row">
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+				</div></h4>
 			</div>
-		<!-- INPUT FULL NAME-->
-			<div class="userTalk" layout="row" layout-align="end start">
-	      <md-input-container flex="30">
-	        <input ng-init="firstName" ng-model="firstName" placeholder="First Name" required md-no-asterisk>
-	        <div ng-messages="userForm.lastName.$error" ng-show="userForm.lastName.$dirty">
-			      <div ng-message="required">You fort to say your First name Buddy</div>
-			    </div>
-	      </md-input-container>
-	      <md-input-container flex="50">
-	        <input ng-init="lastName" ng-model="lastName" placeholder="Last Name">
-	      </md-input-container>
+		<!-- XS & SM -->
+			<div layout="column" hide-gt-sm layout-align="center center">
+				<h6><div class="stars" layout="row">
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa	-star img-fluid stars" aria-hidden="true"></i>			
+					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
+				</div></h6>
 			</div>
-		</chat>
-	</div>
+		</div>
+	<!-- BOT DESCRIPTION -->
+		<div>
+		<!-- MD & GT-MD -->
+			<div layout="column" hide-xs hide-sm layout-align="center center">
+				<h5 class="md-subhead">Personal Business Assistant</h5>
+			</div>
+		<!-- XS & SM -->
+			<div layout="column" hide-gt-sm layout-align="center center"> 
+				<h6><small>Personal Business Assistant</small></h6>
+			</div>
+		</div>
+	<!-- END -->	
 </div>
-
-
-
-
+<!-- DIALOG -->
+<div class="dialog" layout="column" layout-align="start start" flex>
+	<!-- Hello there, Good Morning! -->
+		<div flex-offset="0" flex-offset-gt-sm="15" layout-fill>		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+				<!-- IMAGE -->
+					<div flex="5">
+					</div>
+				<!-- TEXT -->
+					<div flex="40">
+						<h4 class="md-body-1">
+							Hello there, Good Morning! I hope you are having a great day &#x1f60b;
+						</h4>
+					</div>
+			</div>
+		<!-- XS & SM -->
+			<div hide-gt-sm layout="row" layout-align="start center">
+				<!-- IMAGE -->
+					<div flex="10">
+					</div>
+				<!-- TEXT -->
+					<div flex="60">
+						<h6 class="md-body-1">
+						<small>
+							Hello there, Good Morning! I hope you are having a great day &#x1f60b;
+						</small>
+						</h6>
+					</div>
+			</div>
+	<!-- END BOT TALKING -->	
+		</div>
+	<!-- Today I will be helping you to set up your Near account. -->
+		<div flex-offset="0" flex-offset-gt-sm="15" layout-fill>		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+				<!-- IMAGE -->
+					<div flex="5">
+					</div>
+				<!-- TEXT -->
+					<div flex="40">
+						<h4 class="md-body-1">
+							Today I will be helping you to set up your Near account.
+						</h4>
+					</div>
+			</div>
+		<!-- XS & SM -->
+			<div hide-gt-sm layout="row" layout-align="start center">
+				<!-- IMAGE -->
+					<div flex="10" >
+					</div>
+				<!-- TEXT -->
+					<div flex="60">
+						<h6 class="md-body-1">
+						<small>
+							Today I will be helping you to set up your Near account.
+						</small>
+						</h6>
+					</div>
+			</div>
+	<!-- END BOT TALKING -->	
+		</div>
+	<!-- What is your name? -->
+		<div flex-offset="0" flex-offset-gt-sm="15" layout-fill>		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+				<!-- IMAGE -->
+					<div flex="5">
+						<img src="assets/img/Maya-avatar-lg.jpg">
+					</div>
+				<!-- TEXT -->
+					<div flex="40">
+						<h4 class="md-body-1">
+							What is your name?
+						</h4>
+					</div>
+			</div>
+		<!-- XS & SM -->
+			<div hide-gt-sm layout="row" layout-align="start center">
+			<!-- IMAGE -->
+				<div flex="10" >
+					<img src="assets/img/Maya-avatar-sm.jpg">
+				</div>
+			<!-- TEXT -->
+				<div flex="60">
+					<h6 class="md-body-1">
+					<small>
+						What is your name?
+					</small>
+					</h6>
+				</div>
+			</div>
+	<!-- END BOT TALKING -->	
+		</div>
+<!-- END DIALOG -->	
+</div>
 </body>
 </html>
