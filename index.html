@@ -33,12 +33,12 @@
 		<script src="js/app.js"></script>
 
 </head>
-<body ng-app="nearBot">
+<body ng-app="nearBot" ng-init="botFace = 'assets/img/Maya.jpg' ">
 
 <div class="container">
 	<div layout="column" layout-align="start center">
 	<!-- HEADER -->
-		<img src="assets/img/Maya.jpg" class="botFace" alt="Responsive image" layout-fill>
+		<img ng-src="{{botFace}}" class="botFace" alt="Responsive image" layout-fill>
 		<h3 class="name">Maya</h3>
 		<div layout="row">
 			<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
@@ -51,26 +51,30 @@
 	<!-- DIALOG -->	
 		<chat layout="column" layout-fill>
 			<div class="botTalk" layout="row" layout-align="start center">
-				<div flex="10"></div>
+				<img ng-src="{{botFace}}" class="smallBotFace" >
 				<div class="talk" flex="90">
-					<h5>Hello there, Good Morning! I hope you are<br>having a great day &#x1f60b;</h5>
+					<h5>Hello there, Good Morning! I hope you are having a great day &#x1f60b;</h5>
 				</div>
 			</div>
 			<div class="botTalk" layout="row" layout-align="start center">
-				<div flex="10"></div>
+				<img ng-src="assets/img/Maya.jpg" class="smallBotFace" >
 				<div class="talk" flex="90">
-					<h5>Today I will be helping you to set up your<br>Near account.</h5>
+					<h5>Today I will be helping you to set up your Near account.</h5>
 				</div>
 			</div>
-			<div class="botTalk" layout="row" layout-align="start center">
-				<img src="assets/img/Maya.jpg" class="smallBotFace" alt="Responsive image" flex="10">
+			<div class="botTalk" layout="row" layout-align="start start">
+				<img ng-src="{{botFace}}" class="smallBotFace show-face" >
 				<div class="talk" flex="90">
 					<h5>What is your name?</h5>
 				</div>
 			</div>
-			<div class="userTalk" layout="row" layout-align="end center">
-	      <md-input-container flex="30" flex-offset="20">
-	        <input ng-init="firstName" ng-model="firstName" placeholder="First Name">
+		<!-- INPUT FULL NAME-->
+			<div class="userTalk" layout="row" layout-align="end start">
+	      <md-input-container flex="30">
+	        <input ng-init="firstName" ng-model="firstName" placeholder="First Name" required md-no-asterisk>
+	        <div ng-messages="userForm.lastName.$error" ng-show="userForm.lastName.$dirty">
+			      <div ng-message="required">You fort to say your First name Buddy</div>
+			    </div>
 	      </md-input-container>
 	      <md-input-container flex="50">
 	        <input ng-init="lastName" ng-model="lastName" placeholder="Last Name">

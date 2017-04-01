@@ -43,23 +43,34 @@ div.container {
 @media(max-width:768px) {
   div.container chat {
     padding-top: 10%; } }
+    div.container chat .botTalk {
+      max-width: 92%; }
+@media(max-width:768px) {
+  div.container chat .botTalk {
+    max-width: 90%; } }
+      div.container chat .botTalk img.smallBotFace {
+        transform: translateY(-30%);
+        opacity: 0;
+        max-width: 8%; }
 @media(max-width:768px) {
   div.container chat .botTalk img.smallBotFace {
+    transform: translateY(0);
     max-width: 10%; } }
-    div.container chat .botTalk div.talk {
-      margin: 0 1%; }
-      div.container chat .botTalk div.talk h5 {
-        font-size: 14px;
-        font-family: "Open Sans", sans-serif;
-        font-weight: 200;
-        color: #454545;
-        margin: 0;
-        border-radius: 20px;
-        background-color: #dbdbdb;
-        max-width: 40%;
-        height: 50px;
-        padding: 1%;
-        padding-left: 3%; }
+        div.container chat .botTalk img.smallBotFace.show-face {
+          opacity: 1; }
+      div.container chat .botTalk div.talk {
+        margin: 0 1%; }
+        div.container chat .botTalk div.talk h5 {
+          font-size: 14px;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 200;
+          color: #454545;
+          margin: 0;
+          border-radius: 20px;
+          background-color: #dbdbdb;
+          max-width: 70%;
+          padding: 1%;
+          padding-left: 3%; }
 @media(max-width:768px) {
   div.container chat .botTalk div.talk h5 {
     max-width: 90%;
@@ -70,8 +81,6 @@ div.container {
 @media(max-width:768px) {
   div.container chat .botTalk div.talk {
     max-width: 90%; } }
-@media(min-width:768px) {
-  div.container chat .botTalk {
-    min-height: 80px; } }
+@media(min-width:768px) {}
 
 /*# sourceMappingURL=style.css.map */
