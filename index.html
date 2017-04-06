@@ -4,8 +4,10 @@
 <head>
 
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	  <title>Responsive Template</title>
-		<meta charset="utf-8">
+	<title>Responsive Template</title>
+	<meta charset="utf-8">
+
+
 
 	<!-- CSS ////////////////////////////////////////////////////////////////////////////////// -->
 	  <!-- Angular Material style sheet -->
@@ -15,27 +17,29 @@
 		<!-- My style sheet -->
 		<link href="css/style.css" rel="stylesheet">
 	<!-- JS ////////////////////////////////////////////////////////////////////////////////// -->
-		<!-- JQuery Library -->
-	  <script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-	  <!-- Angular Material requires Angular.js Libraries -->
-	  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-	  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-	  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-	  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+		<!--JQuery Library -->
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+		<!-- Angular Material requires Angular.js Libraries -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 	 	<!-- Angular Material Library -->
-	  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-	  <!-- Font Awesome Library -->
+	  	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	  	<!-- Font Awesome Library -->
 		<script src="https://use.fontawesome.com/b4c5107529.js"></script>
-		<!-- My App AngularJS File-->
+		<!--Google API Library -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjNCOtzqN1fXTqFM2DUYQaLyw5k-oDOFw&libraries=places"></script>
+		<!-- App AngularJS File-->
 		<script src="js/app.js"></script>
 
 </head>
-<body ng-app="nearBot">
+<body ng-app="RegisterApp" ng-controller="AppCtrl as ctrl" ng-init="layoutLeft = 15; layoutRight = 45; layoutLeftSm = 5; layoutRightSm = 35; cName = ''; cLastName = '' ">
 <!-- HEADER -->
-<div class="header" layout="column"  layout-align="center center">
+<div class="header" layout="column"  layout-align="center center" ng-cloak>
 	<!-- BOT FACE -->
 		<div>
 		<!-- MD & GT-MD -->
@@ -95,9 +99,9 @@
 	<!-- END -->	
 </div>
 <!-- DIALOG -->
-<div class="dialog" layout="column" layout-align="start start">
+<div class="dialog" layout="column" layout-align="start start" ng-cloak>
 	<!-- Hello there, Good Morning! -->
-		<div flex-offset="0" flex-offset-gt-sm="15" layout-fill>		
+		<div flex-offset={{layoutLeftSm}} flex-offset-gt-sm={{layoutLeft}} flex-offset-sm-sm="15">		
 		<!-- MD & GT-MD -->
 			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
 				<!-- IMAGE -->
@@ -127,7 +131,7 @@
 	<!-- END BOT TALKING -->	
 		</div>
 	<!-- Today I will be helping you to set up your Near account. -->
-		<div flex-offset="0" flex-offset-gt-sm="15" layout-fill>		
+		<div flex-offset={{layoutLeftSm}} flex-offset-gt-sm={{layoutLeft}}>		
 		<!-- MD & GT-MD -->
 			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
 				<!-- IMAGE -->
@@ -157,7 +161,7 @@
 	<!-- END BOT TALKING -->	
 		</div>
 	<!-- What is your name? -->
-		<div flex-offset="0" flex-offset-gt-sm="15" layout-fill>		
+		<div flex-offset={{layoutLeftSm}} flex-offset-gt-sm={{layoutLeft}}>		
 		<!-- MD & GT-MD -->
 			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
 				<!-- IMAGE -->
@@ -188,6 +192,180 @@
 			</div>
 	<!-- END BOT TALKING -->	
 		</div>
+	<!-- INPUT USER NAME - USER TALKING -->
+		<div flex-offset={{layoutRightSm}} flex-offset-gt-sm={{layoutRight}}>		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-align="start center" >
+				<form name="clientName">
+					<md-input-container>
+						<input ng-model="cName" name="name" placeholder="First Name" class="md-block" md-no-asterisk required aria-label="Enter your first name">
+						<div ng-messages="clientName.name.$error">
+							<div ng-message="required">You forgot to tell me your first name</div>		
+						</div>
+					</md-input-container>
+					<md-input-container>	
+						<input ng-model="cLastName" name="lastName" placeholder="Last Name" class="md-block" md-no-asterisk required aria-label="Enter your last name">	
+						<div ng-messages="clientName.lastName.$error">
+							<div ng-message="required">You forgot to tell me your last name</div>		
+						</div>
+					</md-input-container>		
+				</form>
+			</div>
+		<!-- XS & SM -->
+			<div hide-gt-sm layout="row" layout-align="start center" >
+				<form name="clientName">
+					<md-input-container>
+						<input ng-model="cName" name="name" placeholder="First Name" class="md-block" md-no-asterisk required aria-label="Enter your first name">
+						<div ng-messages="clientName.name.$error">
+							<div ng-message="required">You forgot to tell me your first name</div>		
+						</div>
+					</md-input-container>
+					<md-input-container>	
+						<input ng-model="cLastName" name="lastName" placeholder="Last Name" class="md-block" md-no-asterisk required aria-label="Enter your last name">	
+						<div ng-messages="clientName.lastName.$error">
+							<div ng-message="required">You forgot to tell me your last name</div>		
+						</div>
+					</md-input-container>	
+				</form>
+			</div>
+		</div>
+	<!-- END USER TALKING -->
+	<!-- Nice to meet you -->
+		<div flex-offset={{layoutLeftSm}} flex-offset-gt-sm={{layoutLeft}}>		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+				<!-- IMAGE -->
+					<div >
+					</div>
+				<!-- TEXT -->
+					<div >
+						<span class="md-body-1">
+							Nice to meet you {{cName}}
+						</span>
+					</div>
+			</div>
+		<!-- XS & SM -->
+			<div hide-gt-sm layout="row" layout-align="start center">
+				<!-- IMAGE -->
+					<div>
+					</div>
+				<!-- TEXT -->
+					<div>
+						<span class="md-body-1">
+						<small>
+							Nice to meet you {{cName}}
+						</small>
+						</span>
+					</div>
+			</div>
+	<!-- END BOT TALKING -->	
+		</div>
+	<!-- Let's find your place -->
+		<div flex-offset={{layoutLeftSm}} flex-offset-gt-sm={{layoutLeft}}>		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+				<!-- IMAGE -->
+					<div >
+						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
+					</div>
+				<!-- TEXT -->
+					<div >
+						<span class="md-body-1">
+							Let's find your place or business on google map.
+						</span>
+					</div>
+			</div>
+		<!-- XS & SM -->
+			<div hide-gt-sm layout="row" layout-align="start center">
+			<!-- IMAGE -->
+				<div >
+					<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-sm_zpspsd2uwe7.jpg">
+				</div>
+			<!-- TEXT -->
+				<div >
+					<span class="md-body-1">
+					<small>
+						Let's find your place or business on google map.
+					</small>
+					</span>
+				</div>
+			</div>
+	<!-- END BOT TALKING -->	
+		</div>
+	<!-- MAP IMAGE -->
+		<div flex-offset="15" flex-offset-gt-sm="25">		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="center center">					
+				<img
+					ng-src="{{selectedItemImageURLLg}}"
+					ng-hide="selectedItemImageURLLg == null">
+				</img>
+			</div>
+		<!-- XS & SM -->
+		 	<div hide-gt-sm layout="row" layout-align="center center" >
+				<image
+					ng-src="{{selectedItemImageURLSm}}"
+					ng-hide="selectedItemImageURLSm == null">
+				</image>
+			</div>
+		</div>
+	<!-- END BOT TALKING -->
+	<!-- AUTOCOMPLETE SEARCH-->
+		<div flex-offset={{layoutRightSm}} flex-offset-gt-sm="65">		
+		<!-- MD & GT-MD -->
+			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">					
+				<md-autocomplete
+				required md-no-asterisk
+				md-input-name="autocompleteField"
+				md-selected-item="selectedItem"
+				md-floating-label="Address"
+				md-no-cache="true"
+				md-item-text="item.description"
+				md-search-text="searchText"
+				md-items="item in ctrl.googleMapService.getAutoCompleteResult(searchText)"
+				md-search-text-change="query(searchText)"
+				md-selected-item-change="getMapImage(selectedItem)">
+					<md-item-template>
+					  <span md-highlight-text="searchText">{{item.description}}</span>
+					</md-item-template>
+					<md-not-found>
+					  No matches found.
+					</md-not-found>
+					<div
+				    ng-messages="registerForm.autocompleteField.$error"
+				    ng-if="registerForm.autocompleteField.$touched">
+						<div ng-message="required"><b>Address</b> is required</div>
+					</div>
+				</md-autocomplete>
+			</div>
+		<!-- XS & SM -->
+		 	<div hide-gt-sm layout="row" layout-align="start center" >
+				<md-autocomplete
+				required md-no-asterisk
+				md-input-name="autocompleteField"
+				md-selected-item="selectedItem"
+				md-floating-label="Address"
+				md-no-cache="true"
+				md-item-text="item.description"
+				md-search-text="searchText"
+				md-items="item in ctrl.googleMapService.getAutoCompleteResult(searchText)"
+				md-search-text-change="query(searchText)"
+				md-selected-item-change="getMapImage(selectedItem)">
+					<md-item-template>
+					  <span md-highlight-text="searchText">{{item.description}}</span>
+					</md-item-template>
+					<md-not-found>
+					  No matches found.
+					</md-not-found>
+					<div
+				    ng-messages="registerForm.autocompleteField.$error"
+				    ng-if="registerForm.autocompleteField.$touched">
+						<div ng-message="required"><b>Address</b> is required</div>
+					</div>
+				</md-autocomplete>
+			</div>
+		</div>
+	<!-- END USER TALKING -->
 <!-- END DIALOG -->	
 </div>
 </body>
