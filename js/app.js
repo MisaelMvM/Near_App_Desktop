@@ -46,7 +46,6 @@ app.factory('googleMapService', function($http, $q) {
           deferred.resolve([]);
         }
         else {
-
           deferred.reject([]);
         }
       });
@@ -71,6 +70,23 @@ app.factory('googleMapService', function($http, $q) {
 app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
   var self = this;
   var BACKEND_URL = "/place/autocomplete/";
+
+  $scope.typing = true;
+  $scope.start1 = false;
+  $scope.start2 = false;
+  $scope.start3 = false;
+  $scope.inputName = false;
+  $scope.hello1 = false;
+  $scope.hello2 = false;
+  $scope.inputPlace = false;
+  $scope.createUser1 = false;
+  $scope.createUser2 = false;
+  $scope.inputInfo = false;
+  $scope.congrats = false;
+
+  $scope.cName = null;
+  $scope.cLastName = null;
+
 
   $scope.autoCompleteResults = null;
   $scope.selectedItemImageURLLg = null;
@@ -103,7 +119,8 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
       */
     } else {
       $scope.autoCompleteResults = null;
-      $scope.selectedItemImageURL = null;
+      $scope.selectedItemImageURLLg = null;
+      $scope.selectedItemImageURLSm = null;
     }
   };
 
@@ -123,4 +140,99 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
       );
     }
   };
+});
+
+app.directive('helloBot', function($timeout) {
+	return {
+		link: function(scope, elem, attrs) {
+			$timeout(function(){				
+				scope.start1 = true;
+			},900);
+
+			$timeout(function(){
+				scope.start2 = true;
+			},1800);
+					
+			$timeout(function(){
+				scope.typing = false;
+				scope.start3 = true;
+				scope.inputName = true;
+			},2400);
+		}
+	}
+});
+
+app.directive('userName', function($timeout){
+	return {
+		link: function(scope, elem, attrs) {
+
+			elem.bind("keydown keypress", function(event) {
+				if(event.which === 13 || event.which === 9) {
+					if(scope.cName !== "" && scope.cLastName !== "" && scope.cName !== undefined && scope.cLastName !== undefined) {
+						scope.$apply(function() {
+	          	scope.typing = true;
+	        	});
+						$timeout(function(){			
+							scope.hello1 = true;
+						},1200);
+
+						$timeout(function(){
+							scope.typing = false;
+							scope.hello2 = true;
+							scope.inputPlace = true;
+						},1800);
+					}
+				}
+				
+			});
+		}
+	}
+});
+
+app.directive('inputPlace', function($timeout){
+	return {
+		link: function(scope, elem, attrs){
+			scope.$watch(function(){return scope.selectedItemImageURLLg;}, function(event){
+				if(event !== null) {
+	          scope.typing = true;
+
+						$timeout(function(){			
+							scope.createUser1 = true;
+						},1200);
+
+						$timeout(function(){
+							scope.typing = false;
+							scope.createUser2 = true;
+							scope.inputInfo = true;
+						},1800);
+
+						$timeout(function(){
+							elem.bind("keypress", function(event) {	
+								console.log(scope.searchText);
+
+								scope.createUser1 = false;
+								scope.createUser2 = false;
+								scope.inputInfo = false;
+
+
+								if(event.which === 13){
+
+									scope.typing = true;
+
+									$timeout(function(){			
+										scope.createUser1 = true;
+									},1200);
+
+									$timeout(function(){
+										scope.typing = false;
+										scope.createUser2 = true;
+										scope.inputInfo = true;
+									},1800);
+								}
+							});
+						},3000);						
+				}
+			});
+		}
+	}
 });
