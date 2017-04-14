@@ -9,8 +9,6 @@ app.config(function($httpProvider, $mdThemingProvider){
   $mdThemingProvider.setDefaultTheme('registerTheme');
 });
 
-
-
 app.run(function(){
   console.log("App is runing!");
   //This will ask permission so that's not a good
@@ -38,7 +36,7 @@ app.factory('googleMapService', function($http, $q) {
       brooklynLatLng = new google.maps.LatLng({lat: 40.6782, lng: -73.9442});
 
       service.getQueryPredictions({ input: searchText, location: brooklynLatLng, radius: 0 }, function(predictions, status) {
-        
+       
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           deferred.resolve(predictions);
         } else if (status == google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
@@ -49,7 +47,11 @@ app.factory('googleMapService', function($http, $q) {
           deferred.reject([]);
         }
       });
-      
+      return deferred.promise;
+    },
+    getUserAddress: function(selectedItem){
+      var deferred = $q.defer();
+      deferred.resolve(selectedItem.description);
       return deferred.promise;
     },
     getAddressMapImageLg: function(selectedItem) {
@@ -72,21 +74,31 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
   var BACKEND_URL = "/place/autocomplete/";
 
   $scope.typing = true;
-  $scope.start1 = false;
-  $scope.start2 = false;
-  $scope.start3 = false;
-  $scope.inputName = false;
-  $scope.hello1 = false;
-  $scope.hello2 = false;
-  $scope.inputPlace = false;
+  $scope.start1 = true;
+  $scope.start2 = true;
+  $scope.start3 = true;
+  $scope.inputName = true;
+  $scope.inputNameOn = true;
+	$scope.inputNameStatic= false;
+  $scope.hello1 = true;
+  $scope.hello2 = true;
+  $scope.inputPlace = true;
+  $scope.showMap = false;  
   $scope.createUser1 = false;
   $scope.createUser2 = false;
   $scope.inputInfo = false;
+  $scope.inputInfoOn = false;
+  $scope.inputEmailStatic = false;
   $scope.congrats = false;
 
   $scope.cName = null;
   $scope.cLastName = null;
 
+  $scope.selecteAddress = null;
+
+  $scope.email = null;
+  $scope.phone = null;
+  $scope.password = null;
 
   $scope.autoCompleteResults = null;
   $scope.selectedItemImageURLLg = null;
@@ -102,7 +114,6 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
       self.businessCategories = [{label:'Cocktail Bar', value:3}, {label:'Restaurant', value:1}, {label:'Clothing Store', value:2}];
     }, 1200);
   };
-
   $scope.query = function(searchText) {
     if (searchText != "") {
       //Commented this to use async progress bar on autocomplete
@@ -124,8 +135,14 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
     }
   };
 
-  $scope.getMapImage = function(selectedItem) {
+  $scope.getMapImageAndAddress = function(selectedItem) {
     if (selectedItem !== null) {
+      var promiseAddress = googleMapService.getUserAddress(selectedItem);
+      promiseAddress.then(
+        function(data){
+          $scope.selecteAddress = data;
+        }
+      );
       var promiseLg = googleMapService.getAddressMapImageLg(selectedItem);
       promiseLg.then(
         function(data){
@@ -157,6 +174,7 @@ app.directive('helloBot', function($timeout) {
 				scope.typing = false;
 				scope.start3 = true;
 				scope.inputName = true;
+				scope.inputNameOn = true;
 			},2400);
 		}
 	}
@@ -170,7 +188,11 @@ app.directive('userName', function($timeout){
 				if(event.which === 13 || event.which === 9) {
 					if(scope.cName !== "" && scope.cLastName !== "" && scope.cName !== undefined && scope.cLastName !== undefined) {
 						scope.$apply(function() {
-	          	scope.typing = true;
+							scope.inputNameOn = false;
+							scope.inputNameStatic= true;
+							if(scope.hello1 === false){
+	          	scope.typing = true;								
+							}
 	        	});
 						$timeout(function(){			
 							scope.hello1 = true;
@@ -179,7 +201,9 @@ app.directive('userName', function($timeout){
 						$timeout(function(){
 							scope.typing = false;
 							scope.hello2 = true;
-							scope.inputPlace = true;
+              if(scope.showMap === false){
+                scope.inputPlace = true;                
+              }
 						},1800);
 					}
 				}
@@ -189,49 +213,85 @@ app.directive('userName', function($timeout){
 	}
 });
 
-app.directive('inputPlace', function($timeout){
+app.directive('inputPlace', ['googleMapService', '$timeout', function(googleMapService, $timeout){
 	return {
 		link: function(scope, elem, attrs){
 			scope.$watch(function(){return scope.selectedItemImageURLLg;}, function(event){
 				if(event !== null) {
-	          scope.typing = true;
-
+          scope.showMap = true;
+          scope.inputPlace = false;
+          if(scope.createUser1 === false){
+          	scope.typing = true;								
 						$timeout(function(){			
 							scope.createUser1 = true;
 						},1200);
-
 						$timeout(function(){
 							scope.typing = false;
 							scope.createUser2 = true;
+              scope.inputInfoOn = true;
 							scope.inputInfo = true;
 						},1800);
-
-						$timeout(function(){
-							elem.bind("keypress", function(event) {	
-								console.log(scope.searchText);
-
-								scope.createUser1 = false;
-								scope.createUser2 = false;
-								scope.inputInfo = false;
-
-
-								if(event.which === 13){
-
-									scope.typing = true;
-
-									$timeout(function(){			
-										scope.createUser1 = true;
-									},1200);
-
-									$timeout(function(){
-										scope.typing = false;
-										scope.createUser2 = true;
-										scope.inputInfo = true;
-									},1800);
-								}
-							});
-						},3000);						
+          }
+          scope.searchText = undefined;				
 				}
+		  });
+	 }
+	}
+}]);
+
+app.directive('inputInfo', function($timeout){
+	return {
+		link: function(scope, elem, attrs){
+      elem.bind("keydown keypress", function(event) {
+        if(event.which === 13 || event.which === 9) {
+          if(scope.email !== null){
+            if(scope.phone !== null){
+              if(scope.password !== null){
+                scope.inputInfoOn = false;                  
+                scope.inputEmailStatic = true;   
+                if(scope.congrats === false){
+                  scope.typing = true;                
+                  $timeout(function() {
+                    scope.typing = false;
+                    scope.congrats = true;
+                  }, 1500);               
+                }
+              }
+            }
+          }
+        }
+      });
+		}
+	}
+});
+
+app.directive('scroll', function($window){
+  return{
+    link: function(scope, elem, attrs) {
+      
+    }
+  }
+});
+
+app.directive('tryAgain', function(){
+	return {
+		link: function(scope, elem, attrs) {
+			elem.on('mouseenter', function(){
+				elem.css('cursor', 'pointer');
+			});
+			elem.bind('click', function(){
+				scope.$apply(function(){
+					if(elem[0].id === "appMap"){
+						scope.inputPlace = true;
+						scope.showMap = false;  
+					} else if(elem[0].id === "userNameLg" || elem[0].id === "userNameSm"){
+						scope.inputNameStatic= false;
+						scope.inputNameOn = true;					
+					} else if(elem[0].id === "inputInfoLg" || elem[0].id === "inputInfoSm"){
+            scope.inputEmailStatic = false; 
+            scope.inputInfoOn = true;                  
+          }
+				});
 			});
 		}
 	}
