@@ -74,22 +74,22 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
   var BACKEND_URL = "/place/autocomplete/";
 
   $scope.typing = true;
-  $scope.start1 = false;
-  $scope.start2 = false;
-  $scope.start3 = false;
-  $scope.inputName = false;
-  $scope.inputNameOn = false;
+  $scope.start1 = true;
+  $scope.start2 = true;
+  $scope.start3 = true;
+  $scope.inputName = true;
+  $scope.inputNameOn = true;
 	$scope.inputNameStatic= false;
-  $scope.hello1 = false;
-  $scope.hello2 = false;
-  $scope.inputPlace = false;
+  $scope.hello1 = true;
+  $scope.hello2 = true;
+  $scope.inputPlace = true;
   $scope.showMap = false;  
-  $scope.createUser1 = false;
-  $scope.createUser2 = false;
-  $scope.inputInfo = false;
-  $scope.inputInfoOn = false;
+  $scope.createUser1 = true;
+  $scope.createUser2 = true;
+  $scope.inputInfo = true;
+  $scope.inputInfoOn = true;
   $scope.inputEmailStatic = false;
-  $scope.congrats = false;
+  $scope.congrats = true;
 
   $scope.cName = null;
   $scope.cLastName = null;
@@ -103,6 +103,8 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
   $scope.autoCompleteResults = null;
   $scope.selectedItemImageURLLg = null;
   $scope.selectedItemImageURLSm = null;
+
+  self.botTalk = 
 
   self.businessCategories = []
 
@@ -158,6 +160,20 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
     }
   };
 });
+
+app.directive('botTalk', [function(){
+  return {
+    restrict: 'A',
+    templateUrl: '../templates/botTalk.template.html',
+    replace: true,
+    scope: {
+
+    },
+    link: function(scope, elem, attrs){
+
+    }
+  }
+}]);
 
 app.directive('helloBot', function($timeout) {
 	return {

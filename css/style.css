@@ -1,5 +1,41 @@
-.stars {
+body {
+  padding: 1em; }
+
+div.header div.botName {
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #4d595c;
+  margin: 0.3em 0 0.3em 0; }
+div.header div.stars {
   color: #d72374; }
+div.header div.personalInfo {
+  font-size: 0.75em;
+  font-weight: 650;
+  color: #5a696c;
+  margin: 0.3em 0 3em 0; }
+
+img.appMap {
+  margin: 1em;
+  margin-top: 0.2em; }
+
+span.botTalking {
+  background: #e0e4e5;
+  border-radius: 0 1.5em 1.5em 0;
+  padding: 1em;
+  margin: 0 0 0.5em 1em; }
+span.userTalking:first-child, span.userTalking:last-child {
+  background: #e0e4e5;
+  border-radius: 1.5em 1.5em 0 1.5em;
+  padding: 1em;
+  margin: 0 1em 0.5em 0; }
+span.userAddress:first-child, span.userAddress:last-child {
+  background: #e0e4e5;
+  border-radius: 1.5em 1.5em 0 0;
+  padding: 1em; }
+span:first-child {
+  border-radius: 1.5em 1.5em 1.5em 0; }
+span:last-child {
+  border-radius: 0 1.5em 1.5em 1.5em; }
 
 .typing-indicator {
   background-color: #E6E7ED;
@@ -28,7 +64,7 @@
   left: -10px;
   bottom: -10px; }
 
-.typing-indicator span {
+.typing-indicator .typing {
   height: 7px;
   width: 7px;
   float: left;
@@ -38,15 +74,15 @@
   border-radius: 50%;
   opacity: 0.4; }
 
-.typing-indicator span:nth-of-type(1) {
+.typing-indicator .typing:nth-of-type(1) {
   -webkit-animation: 1s blink infinite 0.3333s;
   animation: 1s blink infinite 0.3333s; }
 
-.typing-indicator span:nth-of-type(2) {
+.typing-indicator .typing:nth-of-type(2) {
   -webkit-animation: 1s blink infinite 0.6666s;
   animation: 1s blink infinite 0.6666s; }
 
-.typing-indicator span:nth-of-type(3) {
+.typing-indicator .typing:nth-of-type(3) {
   -webkit-animation: 1s blink infinite 0.9999s;
   animation: 1s blink infinite 0.9999s; }
 

@@ -51,70 +51,73 @@
 		<div>
 		<!-- MD & GT-MD -->
 			<div layout="column" hide-xs hide-sm layout-align="center center">
-				<span class="md-title">Maya</span>
+				<div class="botName">Maya</div>
 			</div>
 		<!-- XS & SM -->
 			<div layout="column" hide-gt-sm layout-align="center center">
-				<span>Maya</span>
+				<div class="botName">Maya</div>
 			</div>
 		</div>
 	<!-- BOT STARS -->
 		<div>
 		<!-- MD & GT-MD -->
 			<div layout="column" hide-xs hide-sm layout-align="center center">
-				<span><div class="stars" layout="row">
+				<div class="stars" layout="row">
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
-				</div></span>
+				</div>
 			</div>
 		<!-- XS & SM -->
 			<div layout="column" hide-gt-sm layout-align="center center">
-				<span><div class="stars" layout="row">
+				<div class="stars" layout="row">
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa	-star img-fluid stars" aria-hidden="true"></i>			
 					<i class="fa fa-star img-fluid stars" aria-hidden="true"></i>			
-				</div></span>
+				</div>
 			</div>
 		</div>
 	<!-- BOT DESCRIPTION -->
 		<div>
 		<!-- MD & GT-MD -->
 			<div layout="column" hide-xs hide-sm layout-align="center center">
-				<span class="md-subhead">Personal Business Assistant</span>
+				<div class="personalInfo">Personal Business Assistant</div>
 			</div>
 		<!-- XS & SM -->
 			<div layout="column" hide-gt-sm layout-align="center center"> 
-				<span><small>Personal Business Assistant</small></span>
+				<div class="personalInfo">Personal Business Assistant</div>
 			</div>
 		</div>
 	<!-- END -->	
 </div>
 <!-- DIALOG -->
-<div class="dialog" layout="column" layout-align="start stretch" ng-cloak>
+<div layout="column" layout-align="start stretch" ng-cloak>
+	
+	<!-- <div bot-talk data="botTalk.greeting"></div> -->
+
 	<!-- Hello there, Good Morning! -->
 		<div hello-bot ng-show="start1">		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row" layout-padding layout-align="start end">
+			<div hide-xs hide-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
-					<div ng-show="start1" bot-img>
+					<div ng-show="start1">
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="end start">
-						<span ng-show="start1">
+					<div class="md-body-1" layout="column"  layout-align="end start">
+						<span class="botTalking"  ng-show="start1">
 							Hello there, Good Morning! I hope you are having a great day &#x1f60b;
-						</span>
-						<span ng-show="start2">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="start2">
 							Today I will be helping you to set up your Near account.
-						</span>
-						<span ng-show="start3">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="start3">
 							What is your name?
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div>
 		<!-- XS & SM -->
@@ -124,16 +127,16 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="end start">
-						<span ng-show="start1">
+					<div class="md-body-1" layout="column"  layout-align="end start">
+						<span class="botTalking"  ng-show="start1">
 							Hello there, Good Morning! I hope you are having a great day &#x1f60b;
-						</span>
-						<span ng-show="start2">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="start2">
 							Today I will be helping you to set up your Near account.
-						</span>
-						<span ng-show="start3">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="start3">
 							What is your name?
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div> 
 		</div>
@@ -187,47 +190,47 @@
 				</form>
 			</div>
 		<!-- MD & GT-MD STATIC -->
-			<div try-again id="userNameLg" ng-show="inputNameStatic" hide-xs hide-sm layout="row" layout-align="end center" >
-				<span class="md-body-1">{{cName}} {{cLastName}}</span>
+			<div class="md-body-1" try-again id="userNameLg" ng-show="inputNameStatic" hide-xs hide-sm layout="row" layout-align="end center" >
+				<span class="md-body-1 userTalking">{{cName}} {{cLastName}}</span class="botTalking" >
 			</div>
 		<!-- XS & SM STATIC-->
-			<div try-again id="userNameSm" ng-show="inputNameStatic" hide-gt-sm layout="row" layout-align="end center" >
-				<span class="md-body-1">{{cName}} {{cLastName}}</span>
+			<div class="md-body-1" try-again id="userNameSm" ng-show="inputNameStatic" hide-gt-sm layout="row" layout-align="end center" >
+				<span class="md-body-1 userTalking">{{cName}} {{cLastName}}</span class="botTalking" >
 			</div>
 		</div>
 	<!-- END USER TALKING -->
 	<!-- Nice to meet you -->
 		<div ng-show="hello1" class="md-body-1">		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row" layout-padding layout-align="start end">
+			<div hide-xs hide-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
 					<div ng-show="hello1">
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="end start">
-						<span ng-show="hello1">
+					<div class="md-body-1" layout="column"  layout-align="end start">
+						<span class="botTalking"  ng-show="hello1">
 							Nice to meet you {{cName}}
-						</span>
-						<span ng-show="hello2">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="hello2">
 							Let's find your place or business on google map.
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div>
 		<!-- XS & SM -->
-			<div hide-gt-sm layout="row" layout-padding layout-align="start end">
+			<div hide-gt-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
 					<div ng-show="hello1">
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="end start">
-						<span ng-show="hello1">
+					<div class="md-body-1" layout="column"  layout-align="end start">
+						<span class="botTalking"  ng-show="hello1">
 							Nice to meet you {{cName}}
-						</span>
-						<span ng-show="hello2">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="hello2">
 							Let's find your place or business on google map.
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div> 
 		</div>
@@ -235,7 +238,7 @@
 	<!-- INPUT AUTOCOMPLETE SEARCH - USER TALKING -->
 		<div input-place ng-show="inputPlace" >		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row" layout-padding layout-align="end center">					
+			<div hide-xs hide-sm layout="row"  layout-align="end center">					
 				<md-autocomplete
 				required md-no-asterisk
 				md-input-name="autocompleteField"
@@ -246,7 +249,8 @@
 				md-search-text="searchText"
 				md-items="item in ctrl.googleMapService.getAutoCompleteResult(searchText)"
 				md-search-text-change="query(searchText)"
-				md-selected-item-change="getMapImageAndAddress(selectedItem)">
+				md-selected-item-change="getMapImageAndAddress(selectedItem)"
+				md-menu-class="background: red">
 					<md-item-template>
 					  <span md-highlight-text="searchText">{{item.description}}</span>
 					</md-item-template>
@@ -291,17 +295,19 @@
 	<!-- MAP IMAGE -->
 		<div try-again id="appMap" ng-show="showMap">		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="column" layout-padding layout-align="center center">		
-				<span class="md-body-1">{{selecteAddress}}</span>	
+			<div hide-xs hide-sm layout="column"  layout-align="center center">		
+				<span  class="md-body-1 userAddress">{{selecteAddress}}</span class="botTalking" >	
 				<img
+					class="appMap"
 					ng-src="{{selectedItemImageURLLg}}"
 					ng-hide="selectedItemImageURLLg == null">
 				</img>
 			</div>
 		<!-- XS & SM -->
 		 	<div hide-gt-sm layout="column" layout-align="center center" >
-		 		<span class="md-body-1">{{selecteAddress}}</span>
+		 		<span  class="md-body-1 userAddress">{{selecteAddress}}</span class="botTalking" >
 				<image
+					class="appMap"
 					ng-src="{{selectedItemImageURLSm}}"
 					ng-hide="selectedItemImageURLSm == null">
 				</image>
@@ -311,35 +317,35 @@
 	<!-- Wowowe, your place looks awesome -->
 		<div ng-show="createUser1">		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row" layout-padding layout-align="start end">
+			<div hide-xs hide-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
 					<div ng-show="createUser2">
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="end start">
-						<span ng-show="createUser1">
+					<div class="md-body-1" layout="column"  layout-align="end start">
+						<span class="botTalking"  ng-show="createUser1">
 							Wowowe, your place looks awesome &#x1f60b;
-						</span>
-						<span ng-show="createUser2">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="createUser2">
 							Lets create your user account.
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div>
 		<!-- XS & SM -->
-			<div hide-gt-sm layout="row" layout-padding layout-align="start end">
+			<div hide-gt-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
 					<div ng-show="createUser2">
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="end start">
-						<span ng-show="createUser1">
+					<div class="md-body-1" layout="column"  layout-align="end start">
+						<span class="botTalking"  ng-show="createUser1">
 							Wowowe, your place looks awesome &#x1f60b;
-						</span>
-						<span ng-show="createUser1">
+						</span class="botTalking" >
+						<span class="botTalking"  ng-show="createUser1">
 							Lets create your user account.
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div> 
 		</div>
@@ -350,7 +356,7 @@
 			<div input-info hide-xs hide-sm layout="row" layout-align="end center" >
 				<form ng-show="inputInfoOn" name="clientInfos" layout="row" layout-align="start center">
 					<md-input-container>
-						<input ng-model="email" name="email" placeholder="email" class="md-block" md-no-asterisk required aria-label="Enter your email">
+						<input ng-model="email" name="email" type="email" placeholder="email" class="md-block" md-no-asterisk required aria-label="Enter your email">
 						<div ng-messages="clientInfos.email.$error">
 							<div ng-message="required">You forgot to tell me your email</div>		
 						</div>
@@ -369,7 +375,7 @@
 					</md-input-container>	
 				</form>				
 				<div try-again id="inputInfoLg" ng-show="inputEmailStatic">
-					<span>{{email}} ...<br></span>
+					<span class="userTalking" >{{email}} ...<br></span>
 				</div>
 			</div>
 		<!-- XS & SM -->
@@ -395,7 +401,7 @@
 					</md-input-container>		
 				</form>
 				<div try-again ng-show="inputEmailStatic" id="inputInfoSm" layout="column" layout-align="center end">
-					<span>{{email}} ...<br></span>
+					<span class="userTalking" >{{email}} ...<br></span>
 				</div>
 			</div>
 		</div>
@@ -403,29 +409,29 @@
 	<!-- Congrats. Now you will be redirected to the portal -->
 		<div ng-show="congrats">		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+			<div hide-xs hide-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
 					<div >
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="center start">
-						<span>
+					<div class="md-body-1" layout="column"  layout-align="center start">
+						<span class="botTalking" >
 							Congrats. Now you will be redirected to the portal.
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div>
 		<!-- XS & SM -->
-			<div hide-gt-sm layout="row" layout-padding layout-align="start center">
+			<div hide-gt-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
 					<div >
 					<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-sm_zpspsd2uwe7.jpg">
 				</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column" layout-padding layout-align="center start">
-						<span>
+					<div class="md-body-1" layout="column"  layout-align="center start">
+						<span class="botTalking" >
 							Congrats. Now you will be redirected to the portal.
-						</span>
+						</span class="botTalking" >
 					</div>
 			</div>
 		</div>
@@ -434,21 +440,21 @@
 	<!-- TYPING -->
 		<div ng-show="typing" style="display: flex">		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row" layout-padding layout-align="start center">
+			<div hide-xs hide-sm layout="row"  layout-align="start center">
 				<!-- IMAGE -->
 					<div class="typing-indicator">
-					  <span></span>
-					  <span></span>
-					  <span></span>
+					  <span class="typing"></span>
+					  <span class="typing"></span>
+					  <span class="typing"></span>
 					</div>
 			</div>
 		<!-- XS & SM -->
-			<div hide-gt-sm layout="row" layout-padding layout-align="start center">
+			<div hide-gt-sm layout="row"  layout-align="start center">
 				<!-- IMAGE -->
 					<div class="typing-indicator">
-					  <span></span>
-					  <span></span>
-					  <span></span>
+					  <span class="typing"></span>
+					  <span class="typing"></span>
+					  <span class="typing"></span>
 					</div>
 			</div>
 		</div>
