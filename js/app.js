@@ -74,15 +74,15 @@ app.controller('AppCtrl', function($scope, $timeout, googleMapService) {
   var BACKEND_URL = "/place/autocomplete/";
 
   $scope.typing = true;
-  $scope.start1 = true;
-  $scope.start2 = true;
-  $scope.start3 = true;
-  $scope.inputName = true;
-  $scope.inputNameOn = true;
+  $scope.start1 = false;
+  $scope.start2 = false;
+  $scope.start3 = false;
+  $scope.inputName = false;
+  $scope.inputNameOn = false;
 	$scope.inputNameStatic= false;
-  $scope.hello1 = true;
-  $scope.hello2 = true;
-  $scope.inputPlace = true;
+  $scope.hello1 = false;
+  $scope.hello2 = false;
+  $scope.inputPlace = false;
   $scope.showMap = false;  
   $scope.createUser1 = false;
   $scope.createUser2 = false;
