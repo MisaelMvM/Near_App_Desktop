@@ -95,7 +95,7 @@
 	<!-- END -->	
 </div>
 <!-- DIALOG -->
-<div layout="column" layout-align="start stretch" ng-cloak>
+<div class="md-body-1" layout="column" layout-align="start stretch" ng-cloak>
 	
 	<!-- <div bot-talk data="botTalk.greeting"></div> -->
 
@@ -108,7 +108,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="end start">
+					<div  layout="column"  layout-align="end start">
 						<span class="botTalking"  ng-show="start1">
 							Hello there, Good Morning! I hope you are having a great day &#x1f60b;
 						</span class="botTalking" >
@@ -127,7 +127,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="end start">
+					<div  layout="column"  layout-align="end start">
 						<span class="botTalking"  ng-show="start1">
 							Hello there, Good Morning! I hope you are having a great day &#x1f60b;
 						</span class="botTalking" >
@@ -144,63 +144,35 @@
 	<!-- INPUT USER NAME - USER TALKING -->
 		<div user-name ng-show="inputName" >		
 		<!-- MD & GT-MD -->
-			<div ng-show="inputNameOn" hide-xs hide-sm layout="row" layout-align="end center">
-				<form name="clientName">
-					<md-input-container>
-						<input  ng-model="cName" 
-								class="md-block"
-								name="name" placeholder="First Name"  
-								md-no-asterisk 
-								required 
-								aria-label="Enter your first name">
-						<div ng-messages="clientName.name.$error">
-							<div ng-message="required">You forgot to tell me your first name</div>	
-						</div>
-					</md-input-container>
-					<md-input-container>	
-						<input  ng-model="cLastName" 
-								md-min-length = "4" 
-								name="lastName" 
-								placeholder="Last Name" 
-								class="md-block" 
-								md-no-asterisk 
-								required 
-								aria-label="Enter your last name">	
-						<div ng-messages="clientName.lastName.$error">
-							<div ng-message="required">You forgot to tell me your last name</div>	
-						</div>
-					</md-input-container>		
-				</form>
+			<div ng-show="inputNameOn" hide-xs hide-sm layout="column" layout-align="center end">
+				<div  >
+					<input class=" userTalking" ng-model="cName" placeholder="First Name" aria-label="Enter your first name">
+				</div>
+				<div >
+					<input class=" userTalking" ng-model="cLastName" placeholder="Last Name" aria-label="Enter your last name">
+				</div>
 			</div>
 		<!-- XS & SM -->
-			<div ng-show="inputNameOn" hide-gt-sm >
-				<form name="clientName" layout="column" layout-align="center end">
-					<md-input-container>
-						<input ng-model="cName" name="name" placeholder="First Name" class="md-block" md-no-asterisk required aria-label="Enter your first name">
-						<div ng-messages="clientName.name.$error">
-							<div ng-message="required">You forgot to tell me your first name</div>		
-						</div>
-					</md-input-container>
-					<md-input-container>	
-						<input ng-model="cLastName" name="lastName" placeholder="Last Name" class="md-block" md-no-asterisk required aria-label="Enter your last name">	
-						<div ng-messages="clientName.lastName.$error">
-							<div ng-message="required">You forgot to tell me your last name</div>		
-						</div>
-					</md-input-container>	
-				</form>
+			<div ng-show="inputNameOn" hide-gt-sm layout="column" layout-align="center end">
+				<div  >
+					<input class=" userTalking" ng-model="cName" placeholder="First Name" aria-label="Enter your first name">
+				</div>
+				<div >
+					<input class=" userTalking" ng-model="cLastName" placeholder="Last Name" aria-label="Enter your last name">
+				</div>
 			</div>
 		<!-- MD & GT-MD STATIC -->
-			<div class="md-body-1" try-again id="userNameLg" ng-show="inputNameStatic" hide-xs hide-sm layout="row" layout-align="end center" >
-				<span class="md-body-1 userTalking">{{cName}} {{cLastName}}</span class="botTalking" >
+			<div  try-again id="userNameLg" ng-show="inputNameStatic" hide-xs hide-sm layout="row" layout-align="end center" >
+				<span class=" userTalking">{{cName}} {{cLastName}}</span class="botTalking" >
 			</div>
 		<!-- XS & SM STATIC-->
-			<div class="md-body-1" try-again id="userNameSm" ng-show="inputNameStatic" hide-gt-sm layout="row" layout-align="end center" >
-				<span class="md-body-1 userTalking">{{cName}} {{cLastName}}</span class="botTalking" >
+			<div  try-again id="userNameSm" ng-show="inputNameStatic" hide-gt-sm layout="row" layout-align="end center" >
+				<span class=" userTalking">{{cName}} {{cLastName}}</span class="botTalking" >
 			</div>
 		</div>
 	<!-- END USER TALKING -->
 	<!-- Nice to meet you -->
-		<div ng-show="hello1" class="md-body-1">		
+		<div ng-show="hello1" >		
 		<!-- MD & GT-MD -->
 			<div hide-xs hide-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
@@ -208,7 +180,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="end start">
+					<div  layout="column"  layout-align="end start">
 						<span class="botTalking"  ng-show="hello1">
 							Nice to meet you {{cName}}
 						</span class="botTalking" >
@@ -224,7 +196,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="end start">
+					<div  layout="column"  layout-align="end start">
 						<span class="botTalking"  ng-show="hello1">
 							Nice to meet you {{cName}}
 						</span class="botTalking" >
@@ -238,19 +210,18 @@
 	<!-- INPUT AUTOCOMPLETE SEARCH - USER TALKING -->
 		<div input-place ng-show="inputPlace" >		
 		<!-- MD & GT-MD -->
-			<div hide-xs hide-sm layout="row"  layout-align="end center">					
+			<div layout="column" hide-xs hide-sm layout-align="center end">
 				<md-autocomplete
 				required md-no-asterisk
 				md-input-name="autocompleteField"
 				md-selected-item="selectedItem"
-				md-floating-label="Address"
+				placeholder="Address"
 				md-no-cache="true"
 				md-item-text="item.description"
 				md-search-text="searchText"
 				md-items="item in ctrl.googleMapService.getAutoCompleteResult(searchText)"
 				md-search-text-change="query(searchText)"
-				md-selected-item-change="getMapImageAndAddress(selectedItem)"
-				md-menu-class="background: red">
+				md-selected-item-change="getMapImageAndAddress(selectedItem)">
 					<md-item-template>
 					  <span md-highlight-text="searchText">{{item.description}}</span>
 					</md-item-template>
@@ -270,7 +241,7 @@
 				required md-no-asterisk
 				md-input-name="autocompleteField"
 				md-selected-item="selectedItem"
-				md-floating-label="Address"
+				placeholder="Address"
 				md-no-cache="true"
 				md-item-text="item.description"
 				md-search-text="searchText"
@@ -296,7 +267,7 @@
 		<div try-again id="appMap" ng-show="showMap">		
 		<!-- MD & GT-MD -->
 			<div hide-xs hide-sm layout="column"  layout-align="center center">		
-				<span  class="md-body-1 userAddress">{{selecteAddress}}</span class="botTalking" >	
+				<span  class=" userAddress">{{selecteAddress}}</span class="botTalking" >	
 				<img
 					class="appMap"
 					ng-src="{{selectedItemImageURLLg}}"
@@ -305,7 +276,7 @@
 			</div>
 		<!-- XS & SM -->
 		 	<div hide-gt-sm layout="column" layout-align="center center" >
-		 		<span  class="md-body-1 userAddress">{{selecteAddress}}</span class="botTalking" >
+		 		<span  class=" userAddress">{{selecteAddress}}</span class="botTalking" >
 				<image
 					class="appMap"
 					ng-src="{{selectedItemImageURLSm}}"
@@ -315,7 +286,7 @@
 		</div>
 	<!-- END BOT TALKING -->
 	<!-- Wowowe, your place looks awesome -->
-		<div ng-show="createUser1">		
+		<div ng-show="createUser1" style="margin-top: 1em">		
 		<!-- MD & GT-MD -->
 			<div hide-xs hide-sm layout="row"  layout-align="start end">
 				<!-- IMAGE -->
@@ -323,7 +294,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="end start">
+					<div  layout="column"  layout-align="end start">
 						<span class="botTalking"  ng-show="createUser1">
 							Wowowe, your place looks awesome &#x1f60b;
 						</span class="botTalking" >
@@ -339,7 +310,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="end start">
+					<div  layout="column"  layout-align="end start">
 						<span class="botTalking"  ng-show="createUser1">
 							Wowowe, your place looks awesome &#x1f60b;
 						</span class="botTalking" >
@@ -351,9 +322,38 @@
 		</div>
 	<!-- END BOT TALKING -->
 	<!-- INPUT EMAIL PHONE NUMBER AND PASSWORD - USER TALKING -->
-		<div ng-show="inputInfo" >		
+		<div ng-show="inputInfo" >	
+		
 		<!-- MD & GT-MD -->
-			<div input-info hide-xs hide-sm layout="row" layout-align="end center" >
+			<div ng-show="inputInfoOn" input-info hide-xs hide-sm layout="column" layout-align="center end">
+				<div  >
+					<input class="userTalking" ng-model="email" placeholder="Email" aria-label="Enter your Email">
+				</div>
+				<div >
+					<input class="userTalking" ng-model="phone" placeholder="Phone Number" aria-label="Enter your Phone Number">
+				</div>
+				<div >
+					<input class="userTalking" ng-model="password" placeholder="Password" aria-label="Enter your Password">
+				</div>
+			</div>
+		<!-- XS & SM -->
+			<div ng-show="inputInfoOn" input-info hide-gt-sm layout="column" layout-align="center end">
+				<div  >
+					<input class="userTalking" ng-model="email" placeholder="Email" aria-label="Enter your Email">
+				</div>
+				<div >
+					<input class="userTalking" ng-model="phone" placeholder="Phone Number" aria-label="Enter your Phone Number">
+				</div>
+				<div >
+					<input class="userTalking" ng-model="password" placeholder="Password" aria-label="Enter your Password">
+				</div>
+			</div>
+			<div try-again ng-show="inputEmailStatic" id="inputInfoSm" layout="column" layout-align="center end">
+				<span class="userTalking" >{{email}} ...<br></span>
+			</div>
+
+		<!-- MD & GT-MD -->
+			<!-- <div input-info hide-xs hide-sm layout="row" layout-align="end center" >
 				<form ng-show="inputInfoOn" name="clientInfos" layout="row" layout-align="start center">
 					<md-input-container>
 						<input ng-model="email" name="email" type="email" placeholder="email" class="md-block" md-no-asterisk required aria-label="Enter your email">
@@ -377,9 +377,9 @@
 				<div try-again id="inputInfoLg" ng-show="inputEmailStatic">
 					<span class="userTalking" >{{email}} ...<br></span>
 				</div>
-			</div>
+			</div> -->
 		<!-- XS & SM -->
-			<div input-info hide-gt-sm>
+			<!-- <div input-info hide-gt-sm>
 				<form ng-show="inputInfoOn" name="clientInfos" layout="column" layout-align="center end">
 					<md-input-container>
 						<input ng-model="email" name="email" placeholder="email" class="md-block" md-no-asterisk required aria-label="Enter your email">
@@ -403,7 +403,7 @@
 				<div try-again ng-show="inputEmailStatic" id="inputInfoSm" layout="column" layout-align="center end">
 					<span class="userTalking" >{{email}} ...<br></span>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	<!-- END USER TALKING -->
 	<!-- Congrats. Now you will be redirected to the portal -->
@@ -415,7 +415,7 @@
 						<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-lg_zpsi3pco4d6.jpg">
 					</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="center start">
+					<div  layout="column"  layout-align="center start">
 						<span class="botTalking" >
 							Congrats. Now you will be redirected to the portal.
 						</span class="botTalking" >
@@ -428,7 +428,7 @@
 					<img src="http://i1244.photobucket.com/albums/gg565/MisaelMVM/Maya-avatar-sm_zpspsd2uwe7.jpg">
 				</div>
 				<!-- TEXT -->
-					<div class="md-body-1" layout="column"  layout-align="center start">
+					<div  layout="column"  layout-align="center start">
 						<span class="botTalking" >
 							Congrats. Now you will be redirected to the portal.
 						</span class="botTalking" >
