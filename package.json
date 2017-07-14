@@ -1,0 +1,20 @@
+{
+  "name": "near_app_desktop",
+  "version": "1.0.0",
+  "description": "AngularJS / Angular MAterial / CSS3 /",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisaelMvM/Near_App_Desktop.git"
+  },
+  "author": "Misael Virissimo de Moura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MisaelMvM/layoutTest2/issues"
+  },
+  "homepage": "https://github.com/MisaelMvM/layoutTest2#readme"
+}

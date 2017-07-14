@@ -1,9 +1,10 @@
-# Layout Responsive Test
+# Near_APP_Mobile
 
-AngularJS / Angular MAterial / CSS3 / 
+This is a desktop webapp that uses emulates a bot to a personalized signup form.
 
-- This project will create a responsive website with: 
-		- Bot signing up process and
-		- Autocomplete place's name
-- This project also includes a google maps feature that loads a map picture of the place selected.
+### Getting Started
 
+- Clone this repository.  `git clone https://github.com/MisaelMvM/Near_App_Desktop`
+- Go inside of the Front-End root folder.  `cd Near_App_Desktop`
+- Install the node modules.  `npm install`
+- Initialize the server.  `npm start`
