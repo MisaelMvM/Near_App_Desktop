@@ -1,4 +1,4 @@
-# Near_APP_Mobile
+# Near_APP_Desktop
 
 This is a desktop webapp that uses emulates a bot to a personalized signup form.
 
