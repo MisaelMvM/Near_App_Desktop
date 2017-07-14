@@ -1,6 +1,6 @@
 # Near_APP_Desktop
 
-This is a desktop webapp that uses emulates a bot to a personalized signup form.
+This is a desktop webapp that emulates a bot to a personalized signup form.
 
 ### Getting Started
 
